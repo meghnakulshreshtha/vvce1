@@ -1,6 +1,9 @@
 Vvce::Application.routes.draw do
   devise_for :users
-
+  resources :users, :only => [:show] do
+    get 'home', :on => :member
+  end
+  root :to => "users#home"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

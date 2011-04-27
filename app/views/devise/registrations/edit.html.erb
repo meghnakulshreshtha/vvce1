@@ -5,7 +5,41 @@
 
   <p><%= f.label :email %><br />
   <%= f.text_field :email %></p>
+	
+	------------------------------------------------------------
+		<p><%= f.label :first_name %><br />
+	  <%= f.text_field :first_name %></p>
 
+		<p><%= f.label :last_name %><br />
+	  <%= f.text_field :last_name %></p>
+
+		<p><%= f.label :department %><br />
+	  <%= f.text_field :department %></p>
+
+		<p><%= f.label :role %><br />
+	  <%= f.select :role, ['Student','Faculty','Alumni'] %></p>
+	------------------------------------------------------------
+
+		<h4>Student Details:</h4>
+
+		<p><%= f.label "USN" %><br />
+	  <%= f.text_field :student_usn %></p>
+	------------------------------------------------------------
+
+		<h4>Alumni Details:</h4>
+
+		<p><%= f.label "USN" %><br />
+	  <%= f.text_field :alumni_usn %></p>
+
+		<p><%= f.label "Company" %><br />
+	  <%= f.text_field :alumni_company %></p>
+	---------------------------------------------------------------
+
+		<h4>Faculty Details</h4>
+
+		<p><%= f.label "Designation" %><br />
+	  <%= f.text_field :faculty_designation %></p>
+	
   <p><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
   <%= f.password_field :password %></p>
 
