@@ -1,9 +1,13 @@
 Vvce::Application.routes.draw do
+  resources :posts
   devise_for :users
-  resources :users, :only => [:show] do
+  resources :users, :only => [:show,:index] do
     get 'home', :on => :member
+    resources :friendships, :only => [:index,:create,:destroy] do
+      post 'accept', :on => :member
+    end
   end
-  root :to => "users#home"
+  root :to => "users#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
