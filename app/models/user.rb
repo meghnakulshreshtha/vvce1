@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   has_many :friendships
   has_many :friends, :class_name => 'User', :through => :friendships, :foreign_key => 'friend_id'
   
+  mount_uploader :avatar, AvatarUploader
+  
   def is_friend? friend
     friends.include?(friend)
   end
