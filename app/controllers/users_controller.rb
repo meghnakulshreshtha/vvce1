@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:signup]
   before_filter :authorize, :only => [:home]
   
   def index
@@ -17,6 +17,9 @@ class UsersController < ApplicationController
   end
 
   def home
+  end
+  
+  def signup
   end
   
   private 
