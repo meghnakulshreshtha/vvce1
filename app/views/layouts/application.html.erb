@@ -23,7 +23,20 @@
 	</div>
 	
 	<div class="row">
-		<div class="column grid_4">&nbsp;</div>
+		<div class="column grid_4">
+			<% if user_signed_in? %>
+			<ul>
+				<li><%= link_to "Home", home_user_path(current_user)%></li>
+				<li><%= link_to "Profile", user_path(current_user) %></li>
+				<li><%= link_to "Friends", user_friendships_path(current_user)%></li>
+				<br/>
+				<li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+				<li><%= link_to "Logout", destroy_user_session_path %></li>	
+			</ul>
+			<% else %>
+				&nbsp;
+			<% end %>	
+		</div>
 		<div class="column grid_10">
 			<%= yield %>
 		</div>	

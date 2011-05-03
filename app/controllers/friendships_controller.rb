@@ -3,7 +3,8 @@ class FriendshipsController < ApplicationController
   before_filter :get_user
   
   def index
-    @friends = @user.friends
+    @friends = @user.friendships.where("accept = ?",true)
+    @requests = Friendship.where("friend_id = ? AND accept = ?", @user.id, false)
   end
   
   def create
@@ -33,12 +34,19 @@ class FriendshipsController < ApplicationController
     @friendship.accept = true
     @friendship.save!
     
-    @friend = User.find(params[:friend_id])
+    @friend = @friendship.friend
     @reverse_friendship = @friend.friendships.build
     @reverse_friendship.friend = @user
+    @reverse_friendship.accept = true
     @reverse_friendship.save!
     
     redirect_to user_path(@friend) 
+  end
+  
+  def reject
+    @friendship = @user.friendships.find params[:id]
+    @friendship.destroy    
+    redirect_to user_friendships_path current_user
   end
   
   private

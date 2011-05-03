@@ -2,8 +2,6 @@
 	<% if @friendship %>
 		<% if @friendship.accept %>
 			<%= link_to "Remove as friend", user_friendship_path(current_user,@friendship) , :method => :delete %>
-		<% else %>
-			<b>Awaiting Friend Request Response</b>
 		<% end %>	
 	<% else %>
 		<%= link_to "Add as friend", user_friendships_path(current_user,@friendship,:friend_id => @friend.id), :method => :post %>

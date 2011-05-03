@@ -11,6 +11,7 @@ Vvce::Application.routes.draw do
     post 'post', :on => :member
     resources :friendships, :only => [:index,:create,:destroy] do
       post 'accept', :on => :member
+      post 'reject', :on => :member
     end
   end
   root :to => "users#index"

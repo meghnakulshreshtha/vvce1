@@ -1,0 +1,11 @@
+<h3>Friend Requests</h3>
+<% unless @requests.count < 0 %>
+	<% @requests.each { |r| %>
+		<%= image_tag(r.user.avatar_url, :width => 60, :height => 60) %>
+		<b><%= link_to r.user.first_name, user_path(r.user) %></b>
+		<%= link_to "Accept", accept_user_friendship_path(r.user,r), :method => :post %>
+		<%= link_to "Reject", reject_user_friendship_path(r.user,r), :method => :post %>
+	<% } %>	
+<% else %>
+	<h4>You have no friend requests</h4>
+<% end %>	
