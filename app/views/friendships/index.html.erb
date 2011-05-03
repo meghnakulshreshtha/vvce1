@@ -9,3 +9,14 @@
 <% else %>
 	<h4>You have no friend requests</h4>
 <% end %>	
+
+<h3>Friends</h3>
+<% unless @friends.count < 0 %>
+	<% @friends.each { |r| %>
+		<%= image_tag(r.user.avatar_url, :width => 60, :height => 60) %>
+		<b><%= link_to r.user.first_name, user_path(r.user) %></b>
+		<%= link_to "Remove as friend", user_friendship_path(current_user,r) , :method => :delete %>
+	<% } %>	
+<% else %>
+	<h4>You have friends</h4>
+<% end %>
