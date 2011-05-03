@@ -17,9 +17,24 @@ class UsersController < ApplicationController
   end
 
   def home
+    @posts = current_user.wallposts
   end
   
   def signup
+  end
+  
+  def post
+    @post = Post.new(params[:post])
+    @post.itemable = current_user
+    @post.user = current_user
+    if @post.valid?
+      @post.save
+      flash[:notice] = "Successfully Posted"
+      redirect_to home_user_path current_user 
+    else
+      flash[:notice] = "Posting Failed.. Try Sometime Later..."
+      redirect_to home_user_path current_user
+    end    
   end
   
   private 

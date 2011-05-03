@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110503083631) do
+ActiveRecord::Schema.define(:version => 20110503085217) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(:version => 20110503083631) do
     t.integer  "friend_id"
     t.integer  "user_id"
     t.boolean  "accept",     :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "likes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "itemable_id"
+    t.string   "itemable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

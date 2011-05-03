@@ -1,9 +1,14 @@
 Vvce::Application.routes.draw do
-  resources :posts
+  resources :likes
+  
+  resources :posts do
+    resources :comments
+  end
   devise_for :users, :controllers => { :registrations => "users/registrations" }
   resources :users, :only => [:show,:index] do
     get 'home', :on => :member
     get 'signup', :on => :collection
+    post 'post', :on => :member
     resources :friendships, :only => [:index,:create,:destroy] do
       post 'accept', :on => :member
     end

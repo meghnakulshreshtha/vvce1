@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   # attr_accessible :email, :password, :password_confirmation, :remember_me
   has_many :friendships
   has_many :friends, :class_name => 'User', :through => :friendships, :foreign_key => 'friend_id'
+  has_many :wallposts, :class_name => 'Post', :as => :itemable
+  has_many :posts
   
   mount_uploader :avatar, AvatarUploader
   

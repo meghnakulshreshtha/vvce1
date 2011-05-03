@@ -1,0 +1,34 @@
+<%= form_tag post_user_path do %>
+	<h3>What are you up to?</h3>
+	<%= text_area_tag "post[body]" %><br/>
+	<%= submit_tag "post" %>
+<% end %>	
+
+<hr/>
+
+<% if @posts.count > 0 %>
+	<% @posts.each { |post| %>
+			<%= image_tag(post.user.avatar_url, :width => 60, :height => 60)%>
+			
+			<b><small><%= post.user.first_name %> says</small></b>
+			
+			<%= post.body %>
+			<ul>
+			<% post.comments.each { |comment| %>
+				<li>
+				 	<%= image_tag(comment.user.avatar_url, :width => 25, :height => 25)%>
+				 	<small><%= comment.body %></small>
+				</li>
+			<% } %>
+			</ul>
+			<%= form_tag post_comments_path(post) do %>
+				<small>Comment</small><br/>
+				<%= text_area_tag "comment[body]" %><br/>
+				<%= hidden_field_tag "back_url", home_user_path(current_user) %>
+				<%= submit_tag "comment" %>
+			<% end %>
+		<hr/>
+	<% } %>	
+<% else %>
+	<b> You dont have any posts yet</b>
+<% end %>	
