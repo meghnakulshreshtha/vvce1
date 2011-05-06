@@ -1,4 +1,11 @@
-<h3>Friend Requests</h3>
+<h3>search friends</h3>
+<%= form_for @friends do |f| %>
+<%= f.label :email %>
+  <%= f.text_field :email %><br />
+<%= link_to "Search", getuser_user_friendship_path(f.user,f), :method => :post %>  
+ <% end %>
+
+<h3>friend Requests</h3>
 <% unless @requests.count < 0 %>
 	<% @requests.each { |r| %>
 		<%= image_tag(r.user.avatar_url, :width => 60, :height => 60) %>

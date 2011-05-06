@@ -1,17 +1,48 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Vvce</title>
   <%= stylesheet_link_tag :all, :scaffold, :grid, :style %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
+  <style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin-top: 40px;
+	background-image:url('/images/photo1.png');
+		text-align: justify;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #757E82;
+}
+
+h1, h2, h3 {
+	color: #AA2808;
+}
+a:hover {
+	text-decoration: none;
+	color: #EF8116;
+}
+
+  </style>
 </head>
 <body>
 	<div class="row">
 		<div class="column grid_14">
-			<div id="header"></div>
+			<div id="header" background-image="/images/rails.png">
+			<h1 style="color:blue;text-align:center;" > <img src="/images/rails1.gif" alt="picture of rails" width=70px ; />VVCE</h1>
+			<br/><br/>
+			</div>
 		</div>
 	</div>
+
+
+
 	
 	<div class="row">
 		<div class="column grid_14">

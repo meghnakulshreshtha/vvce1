@@ -1,6 +1,6 @@
 class FriendshipsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :get_user
+  before_filter :getuser
   
   def index
     @friends = @user.friendships.where("accept = ?",true)
@@ -51,7 +51,7 @@ class FriendshipsController < ApplicationController
   
   private
   
-  def get_user
+  def getuser
     @user = User.find(params[:user_id])
   end
 end

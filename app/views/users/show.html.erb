@@ -1,3 +1,28 @@
+<div class="row">
+		<div class="column grid_14">
+			<div id="header">
+			<h3 text-align: right><%= @user.first_name %><%= @user.last_name %></h3>
+			<br/><br/>
+			</div>
+		</div>
+	</div>
+
+<%= image_tag(@user.avatar_url, :width => 120, :height => 120) %><br />
+FirstName: <%= @user.first_name %><br/>
+Lastname: <%= @user.last_name %><br />
+Email: <%= @user.email %> <br />
+Department: <%= @user.department %> <br />
+
+<% case @user.role
+			 when 'student' %>
+USN: <%= @user.student_usn %> <br />
+<% when 'alumni' %>
+USN: <%= @user.alumni_usn %> <br />
+Company: <%= @user.alumni_company %> <br />
+<% when 'faculty' %>
+Designation: <%= @user.faculty_designation %><br />
+<% end %>
+
 <% unless @friend == current_user %>
 	<% if @friendship %>
 		<% if @friendship.accept %>

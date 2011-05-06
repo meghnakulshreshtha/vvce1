@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
   
   def show
+   @user = User.find(params[:id])
     @friend = User.find(params[:id])
     if current_user.is_friend? @friend
       @friendship = current_user.get_friendship @friend
