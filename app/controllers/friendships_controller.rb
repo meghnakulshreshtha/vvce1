@@ -3,6 +3,7 @@ class FriendshipsController < ApplicationController
   before_filter :getuser
   
   def index
+    @friendships = @user.friendships.search(params[:search])
     @friends = @user.friendships.where("accept = ?",true)
     @requests = Friendship.where("friend_id = ? AND accept = ?", @user.id, false)
   end

@@ -1,7 +1,20 @@
 body{
+
+ 
+  text-align:center;
+  color:#fff;
+
 }
 
 #content{
-	width:980px;
+   
+	width:100%;
 	margin:0px auto;
 }
+
+#content1{
+    background: url('/images/abs.jpg') no-repeat;
+  -moz-background-size: 100% 100%;
+	margin:0px auto;
+}
+

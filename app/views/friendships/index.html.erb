@@ -1,9 +1,5 @@
-<h3>search friends</h3>
-<%= form_for @friends do |f| %>
-<%= f.label :email %>
-  <%= f.text_field :email %><br />
-<%= link_to "Search", getuser_user_friendship_path(f.user,f), :method => :post %>  
- <% end %>
+<br /><br />
+
 
 <h3>friend Requests</h3>
 <% unless @requests.count < 0 %>

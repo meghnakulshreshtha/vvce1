@@ -33,15 +33,12 @@ a:hover {
 </head>
 <body>
 	<div class="row">
-		<div class="column grid_14">
+		<div class="column grid_14" id="content1" >
 			<div id="header" background-image="/images/rails.png">
-			<h1 style="color:blue;text-align:center;" > <img src="/images/rails1.gif" alt="picture of rails" width=70px ; />VVCE</h1>
-			<br/><br/>
+			<h1 style="color:blue;text-align:center;" > <img src="/images/vv.png" alt="picture of rails" width=70px ; /></h1>
 			</div>
 		</div>
 	</div>
-
-
 
 	
 	<div class="row">
@@ -55,6 +52,7 @@ a:hover {
 	
 	<div class="row">
 		<div class="column grid_4">
+		      <br /><br /><br />
 			<% if user_signed_in? %>
 			<ul>
 				<li><%= link_to "Home", home_user_path(current_user)%></li>
